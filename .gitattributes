@@ -1,8 +1,10 @@
-# 统一换行：源码用 LF，Windows 批处理必须用 CRLF（否则 cmd 解析出错）
+# 统一换行：源码用 LF
 * text=auto eol=lf
-*.bat text eol=crlf
-*.cmd text eol=crlf
-*.ps1 text eol=crlf
+
+# Windows 批处理必须原样保留 CRLF（cmd 解析对换行敏感），
+# 用 -text 让 git 不做任何转换，仓库里存的就是 CRLF
+*.bat -text
+*.cmd -text
 
 # 二进制
 *.exe binary
