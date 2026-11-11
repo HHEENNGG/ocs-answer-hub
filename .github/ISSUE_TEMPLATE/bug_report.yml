@@ -1,0 +1,84 @@
+name: 🐛 问题反馈
+description: 启动不了、答错题、题库搜不到、OCS 接不上……都可以提
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！把下面填完整（尤其是**日志**和**复现步骤**）能省掉好几轮来回。
+
+        提之前可以先看一眼：**升级到最新版是否还复现**（如果是用源码跑的，`git pull` 一下）。
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 出问题的环节
+      description: 先选一个最接近的，后面再细说
+      options:
+        - 启动 / 安装（一键启动.bat、exe、依赖）
+        - 网页后台（页面打不开、按钮没反应、样式错乱）
+        - 题库（导入、检索、答案不对）
+        - OCS 接入（配置报错、提示答案和选项不匹配）
+        - AI 模型（调用失败、超时、返回空）
+        - 图片题识别
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本 / 运行方式
+      description: 例如「Release v1.0.0 的 exe」或「源码 + Python 3.12」，后台「关于」页也能看到版本号
+      placeholder: Release v1.0.0 的 exe
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 系统环境
+      description: Windows 版本，是否装了 Python，浏览器是什么
+      placeholder: Windows 11 24H2 / Python 3.12.8 / Edge 131
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 按顺序写你做了什么，越具体越好
+      placeholder: |
+        1. 双击 一键启动.bat
+        2. 后台「题库」页导入 xxx.json
+        3. 在 OCS 里配置好后，做一道单选题
+        4. 弹出「给出的答案和选项不匹配」
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果 vs 实际结果
+      placeholder: |
+        期望：自动选中 A
+        实际：提示「⚠️ 给出的答案和选项不匹配」
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: 相关日志
+      description: |
+        后台「日志」页可以筛选并导出；exe 版日志在 `data\log.txt`；
+        如果怀疑是插件发来的请求有问题，`data\logs\protocol-miss.log` 会记下原始请求体。
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 自查
+      options:
+        - label: 我已经看过 README 的「快速开始」和「接入 OCS」两节
+        - label: 我确认不是自己填错了模型 API Key / 端口被占用
+        - label: 我上传的日志里没有我的 API Key（有的话请先打码）

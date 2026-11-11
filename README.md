@@ -1,9 +1,30 @@
-# OCS 智题库 · AnswerHub
+<p align="center">
+  <img src="assets/icon.png" width="140" alt="OCS 智题库 · AnswerHub">
+</p>
 
-> 一个端口，同时喂饱三种 OCS 答题插件；本地题库优先命中，AI 兜底，图片题也能认。
+<h1 align="center">OCS 智题库 · AnswerHub</h1>
+
+<p align="center">
+  <b>本地题库优先命中 · AI 兜底 · 图片题也能认 · 双击即用</b>
+</p>
+
+<p align="center">
+  <a href="https://github.com/HHEENNGG/ocs-answer-hub/releases/latest"><img src="https://img.shields.io/github/v/release/HHEENNGG/ocs-answer-hub?color=2ea44f&label=download" alt="release"></a>
+  <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white" alt="python">
+  <img src="https://img.shields.io/badge/Windows-10%2F11-0078D4?logo=windows&logoColor=white" alt="windows">
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="license">
+</p>
 
 把「AutoCourse-DB 的本地题库」「ocs-ai-answerer 的 AI 识别」「ocsjs 服务的即插即用」三件事合成一个程序：
-**双击 `一键启动.bat` 就能用，不需要 Node、不需要编译；自带示例题库，填入自己的题库或模型 Key 即可正式使用。**
+一次部署同时兼容四种答题协议，**不需要 Node、不需要编译**，双击就能跑。
+
+## 🖼️ 界面预览
+
+| 概览 · 题库规模与命中率 | 题库 · 检索、增删改、导入导出 |
+|:---:|:---:|
+| ![概览](docs/screenshots/dashboard.png) | ![题库](docs/screenshots/questions.png) |
+
+> 截图取自真实运行界面（自带示例题库 · 深色主题，左下角可切换浅色）。
 
 ---
 
@@ -24,7 +45,16 @@
 
 ## 🚀 快速开始
 
-### 方式一：双击运行（推荐）
+### 方式一：下载现成的 EXE（最省事，不用装 Python）
+
+1. 到 [Releases](https://github.com/HHEENNGG/ocs-answer-hub/releases/latest) 下载 **`OCS-AnswerHub.exe`**
+2. 双击运行，浏览器会自动打开 `http://127.0.0.1:8000/`
+3. 想停止：关掉那个黑窗口即可
+
+> 只有一个文件，不用装 Python、不用 pip。`data\` 目录会建在 **exe 旁边**（题库、配置、日志都在里面）。
+
+
+### 方式二：用源码启动（需要 Python 3.9+）
 
 1. 双击 **`一键启动.bat`**
 2. 首次运行会自动准备环境（几秒到几十秒），然后浏览器自动打开 `http://127.0.0.1:8000/`
@@ -33,18 +63,18 @@
 > 前提：电脑上装了 **Python 3.9+**（[下载地址](https://www.python.org/downloads/)，安装时勾选 *Add python.exe to PATH*）。
 > 脚本会自动找 `py`/`python`、复用已有依赖，缺依赖才联网装（失败会走清华镜像）。
 
-### 方式一 · 免 Python 版：单文件 EXE
+### 方式三：自己打包 EXE（可选）
 
-不想装 Python 也行——项目里带了打包脚本：
+如果更想自己打一份带图标的最新版，仓库里带了脚本：
 
 1. 双击 **`打包EXE.bat`**（首次会自动装 PyInstaller，约 1~3 分钟）
-2. 完成后得到 `dist\OCS-AnswerHub.exe`（约 16 MB，内含前端与两个示例题库）
+2. 完成后得到 `dist\OCS-AnswerHub.exe`（约 16 MB，内含前端与自带示例题库）
 3. 把这个 exe 复制到任意位置，双击即可使用 —— 浏览器会自动打开
 
 > `data\` 目录会创建在 **exe 旁边**（题库、配置、日志都在里面），所以换电脑时把整个文件夹一起带走即可。
 > 也可以用 `set OCS_HUB_DATA_DIR=D:\my-data` 把数据放到指定目录。
 
-### 方式二：命令行
+### 方式四：命令行
 
 ```bat
 python -m pip install -r requirements.txt

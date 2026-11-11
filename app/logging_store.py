@@ -239,7 +239,7 @@ def stats(days: int = 7) -> Dict[str, Any]:
     today_ai = int(db.scalar("SELECT COUNT(*) FROM answer_logs WHERE ts LIKE ? AND hit_source = 'ai'", (today + "%",), 0))
     today_hit = int(
         db.scalar(
-            "SELECT COUNT(*) FROM answer_logs WHERE ts LIKE ? AND hit_source IN ('exact','legacy','fuzzy','cache')",
+            "SELECT COUNT(*) FROM answer_logs WHERE ts LIKE ? AND hit_source IN ('bank','exact','legacy','fuzzy','cache')",
             (today + "%",),
             0,
         )

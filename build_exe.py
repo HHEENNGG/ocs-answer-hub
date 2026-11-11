@@ -99,6 +99,11 @@ def main() -> int:
     args += _add_data(web_dir, "web")
     if os.path.isdir(lib_dir):
         args += _add_data(lib_dir, "libraries")
+    icon = os.path.join(ROOT, "assets", "icon.ico")
+    if os.path.isfile(icon):
+        args += ["--icon", icon]
+    else:
+        print(f"[提示] 没找到图标 {icon}，exe 将使用默认图标")
     for name in EXCLUDES:
         args += ["--exclude-module", name]
 

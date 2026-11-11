@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 先看看使用文档
+    url: https://github.com/HHEENNGG/ocs-answer-hub#readme
+    about: 快速开始、OCS 接入配置、常见报错都在 README 里
+  - name: 🔌 OCS 插件官方文档
+    url: https://docs.ocsjs.com/docs/other/api
+    about: 题库配置的字段和占位符含义以官方文档为准
