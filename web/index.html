@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OCS 智题库 · AnswerHub</title>
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">智</div>
+      <div class="brand-text">
+        <strong>OCS 智题库</strong>
+        <span>AnswerHub</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a class="nav-item" href="#/dashboard" data-page="dashboard">
+        <span class="nav-ico" data-icon="grid"></span><span>概览</span>
+      </a>
+      <a class="nav-item" href="#/questions" data-page="questions">
+        <span class="nav-ico" data-icon="book"></span><span>题库</span>
+      </a>
+      <a class="nav-item" href="#/models" data-page="models">
+        <span class="nav-ico" data-icon="cpu"></span><span>模型</span>
+      </a>
+      <a class="nav-item" href="#/settings" data-page="settings">
+        <span class="nav-ico" data-icon="sliders"></span><span>参数</span>
+      </a>
+      <a class="nav-item" href="#/playground" data-page="playground">
+        <span class="nav-ico" data-icon="flask"></span><span>答题测试</span>
+      </a>
+      <a class="nav-item" href="#/logs" data-page="logs">
+        <span class="nav-ico" data-icon="list"></span><span>日志</span>
+      </a>
+      <a class="nav-item" href="#/integration" data-page="integration">
+        <span class="nav-ico" data-icon="plug"></span><span>接入方式</span>
+      </a>
+      <a class="nav-item" href="#/about" data-page="about">
+        <span class="nav-ico" data-icon="info"></span><span>关于</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="health" id="health">
+        <span class="dot" id="health-dot"></span>
+        <span id="health-text">连接中…</span>
+      </div>
+      <button class="btn ghost tiny" id="theme-toggle" title="切换明暗主题">
+        <span data-icon="moon"></span><span id="theme-label">暗色</span>
+      </button>
+      <div class="version" id="version">v—</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="page-title">概览</h1>
+        <p id="page-sub">正在加载…</p>
+      </div>
+      <div class="topbar-actions" id="topbar-actions"></div>
+    </header>
+    <section class="content" id="content">
+      <div class="loading"><span class="spinner"></span> 加载中…</div>
+    </section>
+  </main>
+</div>
+
+<div class="toast-wrap" id="toast-wrap"></div>
+<div class="modal-root" id="modal-root" hidden></div>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/js/dashboard.js"></script>
+<script src="/static/js/questions.js"></script>
+<script src="/static/js/models.js"></script>
+<script src="/static/js/settings.js"></script>
+<script src="/static/js/playground.js"></script>
+<script src="/static/js/logs.js"></script>
+<script src="/static/js/integration.js"></script>
+<script src="/static/js/app.js"></script>
+<script>
+/* 兜底提示：如果主脚本没执行（老浏览器 / 兼容模式 / 被拦截），给出明确原因，而不是一片点不动的死页 */
+window.setTimeout(function () {
+  if (window.Pages && window.UI) return;
+  var box = document.getElementById("content");
+  if (!box) return;
+  var ua = navigator.userAgent || "";
+  var old = /MSIE|Trident|compatible; MSIE/i.test(ua);
+  box.innerHTML =
+    '<div class="alert err" style="line-height:1.9">' +
+    "<b>页面脚本没能运行，所以页面是“死”的（点不动）</b><br>" +
+    (old
+      ? "检测到 <b>IE 内核</b>（360 / QQ 浏览器的“兼容模式”也属于这一类），本页面需要现代浏览器。<br>"
+      : "可能原因：浏览器版本过旧，或脚本被安全软件拦截。<br>") +
+    "请复制下面这个地址，用 <b>Edge 或 Chrome</b> 的新窗口打开：<br>" +
+    '<code style="user-select:all">' + location.href + "</code><br>" +
+    '<span style="opacity:.65;font-size:12px">诊断信息：' + ua + "</span>" +
+    "</div>";
+}, 2500);
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "[single] 本项目用什么数据库保存题库？ | SQLite | MySQL | PostgreSQL | Redis": "SQLite",
+  "[single] 服务默认监听的端口是？ | 3000 | 5000 | 8000 | 8080": "8000",
+  "[single] 题库没有命中时，流水线会先尝试什么？ | 直接报错 | 用 AI 兜底 | 重启服务 | 清空缓存": "用 AI 兜底",
+  "[single] 2 + 3 = ? | 4 | 5 | 6 | 7": "5",
+  "[single] 下列哪个是本项目提供的接入地址？ | /search | /graphql | /grpc | /soap": "/search",
+  "[single] 前端页面需要执行 npm build 吗？ | 需要 | 不需要 | 只在生产环境需要 | 只在开发环境需要": "不需要",
+  "[multiple] 本项目同时兼容哪些接入协议？ | /search | /api/search | /api/answer | /api/v1/ask": "/search#/api/search#/api/answer#/api/v1/ask",
+  "[multiple] 下列哪些是 HTTP 请求方法？ | GET | POST | PUT | FETCH": "GET#POST#PUT",
+  "[multiple] 下列哪些属于本项目的组成部分？ | 后端服务 | 网页后台 | 启动脚本 | 移动端 App": "后端服务#网页后台#启动脚本",
+  "[judgement] 本项目的题库数据默认保存在程序目录下的 data 目录。（ ） | 对 | 错": "对",
+  "[judgement] 同一道题的选项顺序被调换后，本项目依然能命中题库。（ ） | 对 | 错": "对",
+  "[judgement] 3 是偶数。（ ） | 对 | 错": "错",
+  "[judgement] 本项目会自动把已填写的 API Key 上传到作者的服务器。（ ） | 对 | 错": "错",
+  "[judgement] 本项目的网页后台需要额外安装 Node.js 才能打开。（ ） | 对 | 错": "错"
+}

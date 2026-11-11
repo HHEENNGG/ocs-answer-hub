@@ -1,0 +1,32 @@
+# ---- 运行时数据（不含在仓库里）----
+# data/ 里有：题库数据库 bank.db、配置文件 config.json（**含你的 API Key**）、日志、图片缓存
+data/
+*.db
+*.db-wal
+*.db-shm
+*.log
+
+# ---- 打包产物 ----
+build/
+dist/
+*.spec
+*.exe
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 个人题库：除了自带的示例题库，其它课程题库不建议公开 ----
+libraries/*.json
+!libraries/示例题库.json

@@ -1,0 +1,6 @@
+flask>=3.0
+Flask-Cors>=4.0
+requests>=2.31
+
+# 可选：生产级 WSGI 服务器（未安装时自动退回 Flask 内置服务器）
+# waitress>=3.0
